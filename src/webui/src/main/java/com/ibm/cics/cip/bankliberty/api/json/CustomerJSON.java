@@ -20,7 +20,6 @@ public class CustomerJSON {
 	@FormParam("customerAddress")
 	String customerAddress;
 
-	@NotNull
 	@FormParam("customerTitle")
 	String customerTitle;
 
@@ -144,8 +143,9 @@ public class CustomerJSON {
 
 	public String toString() {
 		return "customerAddress=" + this.getCustomerAddress() + ",customerTitle=" + this.getCustomerTitle()
-				+ ",customerName=" + this.getCustomerName() + ",dateOfBirth=" + this.getDateOfBirth() + ",creditScore="
-				+ this.getCreditScore() + ",sortCode=" + this.getSortCode() + ",reviewDate=" + this.getReviewDate();
+				+ ",customerName=" + this.getCustomerName() + ",dateOfBirth=" + this.getDateOfBirth()
+				+ ",creditScore=" + this.getCreditScore() + ",sortCode=" + this.getSortCode()
+				+ ",reviewDate=" + this.getReviewDate();
 	}
 
 }

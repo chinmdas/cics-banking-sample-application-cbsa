@@ -275,9 +275,10 @@ public class Customer {
 		Date myCustomerReviewDate = new Date(
 				myCalendar.toInstant().toEpochMilli());
 
+		String fullName = myCustomer.getCustomerTitle().trim() + " " + myCustomer.getCustomerName().trim();
 		temp = new Customer(Long.toString(myCustomer.getCustomerNumber()),
 				Integer.toString(myCustomer.getCustomerSortcode()),
-				myCustomer.getCustomerName(), myCustomer.getCustomerAddress(),
+				fullName, myCustomer.getCustomerAddress(),
 				myCustomerBirthDate,
 				Integer.toString(myCustomer.getCustomerCreditScore()),
 				myCustomerReviewDate);
@@ -385,7 +386,8 @@ public class Customer {
 			temp[j].setAddress(myCustomer.getCustomerAddress());
 			temp[j].setCustomerNumber(
 					Long.toString(myCustomer.getCustomerNumber()));
-			temp[j].setName(myCustomer.getCustomerName());
+			String fullName = myCustomer.getCustomerTitle().trim() + " " + myCustomer.getCustomerName().trim();
+			temp[j].setName(fullName);
 			temp[j].setSortcode(
 					Integer.toString(myCustomer.getCustomerSortcode()));
 			Calendar myCalendar = Calendar.getInstance();
@@ -446,7 +448,9 @@ public class Customer {
 			customerFile.readForUpdate(key, holder);
 			myCustomer = new CUSTOMER(holder.getValue());
 			myCustomer.setCustomerAddress(customer.getCustomerAddress());
-			myCustomer.setCustomerTitle(customer.getCustomerTitle());
+			if (customer.getCustomerTitle() != null && !customer.getCustomerTitle().isEmpty()) {
+				myCustomer.setCustomerTitle(customer.getCustomerTitle());
+			}
 			myCustomer.setCustomerName(customer.getCustomerName());
 			customerFile.rewrite(myCustomer.getByteBuffer());
 			myCustomer = new CUSTOMER(holder.getValue());
@@ -486,9 +490,10 @@ public class Customer {
 		String myCustomerNumber = padCustomerNumber(
 				Long.toString(myCustomer.getCustomerNumber()));
 
+		String fullName = myCustomer.getCustomerTitle().trim() + " " + myCustomer.getCustomerName().trim();
 		temp = new Customer(myCustomerNumber,
 				Integer.toString(myCustomer.getCustomerSortcode()),
-				myCustomer.getCustomerName(), myCustomer.getCustomerAddress(),
+				fullName, myCustomer.getCustomerAddress(),
 				myCustomerBirthDate,
 				Integer.toString(myCustomer.getCustomerCreditScore()),
 				myCustomerReviewDate);
@@ -573,9 +578,10 @@ public class Customer {
 				myCustomer.getCustomerCsReviewDay());
 		Date myCustomerReviewDate = new Date(
 				myCalendar.toInstant().toEpochMilli());
+		String fullName = myCustomer.getCustomerTitle().trim() + " " + myCustomer.getCustomerName().trim();
 		temp = new Customer(Long.toString(myCustomer.getCustomerNumber()),
 				Integer.toString(myCustomer.getCustomerSortcode()),
-				myCustomer.getCustomerName(), myCustomer.getCustomerAddress(),
+				fullName, myCustomer.getCustomerAddress(),
 				myCustomerBirthDate,
 				Integer.toString(myCustomer.getCustomerCreditScore()),
 				myCustomerReviewDate);
@@ -653,7 +659,9 @@ public class Customer {
 		myCustomer = new CUSTOMER();
 		myCustomer.setCustomerEyecatcher(CUSTOMER.CUSTOMER_EYECATCHER_VALUE);
 		myCustomer.setCustomerAddress(customer.getCustomerAddress().trim());
-		myCustomer.setCustomerTitle(customer.getCustomerTitle().trim());
+		if (customer.getCustomerTitle() != null && !customer.getCustomerTitle().isEmpty()) {
+			myCustomer.setCustomerTitle(customer.getCustomerTitle().trim());
+		}
 		myCustomer.setCustomerName(customer.getCustomerName().trim());
 
 		Calendar myCalendar = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
@@ -749,9 +757,10 @@ public class Customer {
 		String myCustomerNumber = padCustomerNumber(
 				Long.toString(myCustomer.getCustomerNumber()));
 
+		String fullName = myCustomer.getCustomerTitle().trim() + " " + myCustomer.getCustomerName().trim();
 		temp = new Customer(myCustomerNumber,
 				Integer.toString(myCustomer.getCustomerSortcode()),
-				myCustomer.getCustomerName(), myCustomer.getCustomerAddress(),
+				fullName, myCustomer.getCustomerAddress(),
 				myCustomerBirthDate,
 				Integer.toString(myCustomer.getCustomerCreditScore()),
 				myCustomerReviewDate);
@@ -931,7 +940,8 @@ public class Customer {
 					temp[stored].setAddress(myCustomer.getCustomerAddress());
 					temp[stored].setCustomerNumber(
 							Long.toString(myCustomer.getCustomerNumber()));
-					temp[stored].setName(myCustomer.getCustomerName());
+					String fullName = myCustomer.getCustomerTitle().trim() + " " + myCustomer.getCustomerName().trim();
+					temp[stored].setName(fullName);
 					temp[stored].setSortcode(Integer
 							.toString((myCustomer.getCustomerSortcode())));
 					Calendar dobCalendar = Calendar.getInstance();
@@ -1034,7 +1044,8 @@ public class Customer {
 					temp[stored].setAddress(myCustomer.getCustomerAddress());
 					temp[stored].setCustomerNumber(
 							Long.toString(myCustomer.getCustomerNumber()));
-					temp[stored].setName(myCustomer.getCustomerName());
+					String fullName = myCustomer.getCustomerTitle().trim() + " " + myCustomer.getCustomerName().trim();
+					temp[stored].setName(fullName);
 					temp[stored].setSortcode(
 							Integer.toString(myCustomer.getCustomerSortcode()));
 					Calendar dobCalendar = Calendar.getInstance();
@@ -1139,7 +1150,9 @@ public class Customer {
 								.setAddress(myCustomer.getCustomerAddress());
 						temp[stored].setCustomerNumber(
 								Long.toString(myCustomer.getCustomerNumber()));
-						temp[stored].setName(myCustomer.getCustomerName());
+						String fullName = myCustomer.getCustomerTitle().trim() + " "
+								+ myCustomer.getCustomerName().trim();
+						temp[stored].setName(fullName);
 						temp[stored].setSortcode(Integer
 								.toString(myCustomer.getCustomerSortcode()));
 						Calendar dobCalendar = Calendar.getInstance();
@@ -1348,7 +1361,8 @@ public class Customer {
 				temp[j].setAddress(myCustomer.getCustomerAddress());
 				temp[j].setCustomerNumber(
 						Long.toString(myCustomer.getCustomerNumber()));
-				temp[j].setName(myCustomer.getCustomerName());
+				String fullName = myCustomer.getCustomerTitle().trim() + " " + myCustomer.getCustomerName().trim();
+				temp[j].setName(fullName);
 				temp[j].setSortcode(
 						Integer.toString(myCustomer.getCustomerSortcode()));
 				Calendar dobCalendar = Calendar.getInstance();
@@ -1448,7 +1462,8 @@ public class Customer {
 				temp[j].setAddress(myCustomer.getCustomerAddress());
 				temp[j].setCustomerNumber(
 						Long.toString(myCustomer.getCustomerNumber()));
-				temp[j].setName(myCustomer.getCustomerName());
+				String fullName = myCustomer.getCustomerTitle().trim() + " " + myCustomer.getCustomerName().trim();
+				temp[j].setName(fullName);
 				temp[j].setSortcode(
 						Integer.toString(myCustomer.getCustomerSortcode()));
 				Calendar dobCalendar = Calendar.getInstance();
@@ -1548,7 +1563,9 @@ public class Customer {
 						temp[i].setAddress(myCustomer.getCustomerAddress());
 						temp[i].setCustomerNumber(
 								Long.toString(myCustomer.getCustomerNumber()));
-						temp[i].setName(myCustomer.getCustomerName());
+						String fullName = myCustomer.getCustomerTitle().trim() + " "
+								+ myCustomer.getCustomerName().trim();
+						temp[i].setName(fullName);
 						temp[i].setSortcode(Integer
 								.toString(myCustomer.getCustomerSortcode()));
 						temp[i].setDob(dob);
