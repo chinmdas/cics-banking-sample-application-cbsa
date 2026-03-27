@@ -1,0 +1,5 @@
+# Rules for COBOL System Dataset References
+- When creating JCL for COBOL compilation, never assume or guess system dataset names — they are environment-specific and incorrect names will cause `IEF212I DATA SET NOT FOUND` errors.
+- To determine the correct system dataset names, follow this priority order:
+  1. **First**: Look for a `Languages.yaml` file in the DBB (Dependency Based Build) build configuration directory of the project (e.g., `<DBB_HOME>/build/Languages.yaml`) — this file defines the exact dataset qualifiers used for the COBOL compiler, CICS libraries, Language Environment, and other system libraries for this environment.
+  2. **Second**: If `Languages.yaml` is not available or accessible, ask the user to provide the correct dataset names manually before proceeding with JCL creation.
